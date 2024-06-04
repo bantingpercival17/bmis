@@ -17,7 +17,66 @@
                                 class="form-control form-control-sm border border-primary"
                                 placeholder="Search Pattern: Last Name, First Name">
                         </div>
-                        <a href="{{ route('resident.add') }}" class="btn btn-primary">Add Resident's</a>
+                        <div class="form-group">
+                            <small class="text-secondary ">REGION <span class="text-danger">*</span></small>
+                            <select wire:change="selectAddress" wire:model="residents.region"
+                                class="form-select border border-info">
+                                <option selected>Select Region</option>
+                                @foreach ($regionList as $region)
+                                    <option value="{{ $region->id }}">
+                                        {{ $region->abbreviation . ' - ' . $region->region_name }}</option>
+                                @endforeach
+                            </select>
+                            @error('residents.region')
+                                <small class="badge bg-danger mt-2">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <small class="text-secondary ">PROVINCE <span class="text-danger">*</span></small>
+                            <select wire:model="residents.province"
+                                wire:change="selectAddress"class="form-select border border-info">
+                                <option selected>Select Province</option>
+                                @forelse ($provinceList as $item)
+                                    <option value="{{ $item->id }}">{{ $item->province_name }}</option>
+                                @empty
+                                @endforelse
+
+                            </select>
+                            @error('residents.province')
+                                <small class="badge bg-danger mt-2">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <small class="text-secondary ">MUNICIPALITY / CITY <span
+                                    class="text-danger">*</span></small>
+                            <select wire:model="residents.municipality" wire:change="selectAddress"
+                                class="form-select border border-info">
+                                <option selected>Select Municipality / City</option>
+                                @forelse ($municipalityList as $item)
+                                    <option value="{{ $item->id }}">{{ $item->municipality_name }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+                            @error('residents.municipality')
+                                <small class="badge bg-danger mt-2">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <small class="text-secondary ">BARANGAY<span class="text-danger">*</span></small>
+                            <select wire:model="residents.barangay" wire:change="selectAddress"
+                                class="form-select border border-info">
+                                <option selected>Select Barangay</option>
+                                @forelse ($barangayList as $item)
+                                    <option value="{{ $item->id }}">{{ $item->barangay_name }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+                            @error('residents.barangay')
+                                <small class="badge bg-danger mt-2">{{ $message }}</small>
+                            @enderror
+                        </div>
+
+        {{json_encode($residents) }}
                         {{-- @livewire('resident.add-resident-information') --}}
                     </div>
                 </div>
@@ -26,8 +85,9 @@
                 <div class="card">
                     <div class="card-header bg-white">
                         <span class="h3 fw-bolder text-primary">Residents List</span>
-                        <button class="btn btn-info float-end" wire:click="generateFakeData">GENERATE FAKE
-                            RESIDENT</button>
+                        <a href="{{ route('resident.add') }}" class="btn btn-primary float-end">Add Resident's</a>
+                       {{--  <button class="btn btn-info float-end" wire:click="generateFakeData">GENERATE FAKE
+                            RESIDENT</button> --}}
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

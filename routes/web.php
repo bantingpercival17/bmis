@@ -8,7 +8,7 @@ use App\Livewire\Resident\AddInformation;
 use App\Livewire\Resident\ViewInformation;
 use App\Livewire\ResidentView;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/migrate', function () {
+    Artisan::migrate();
+});
 Route::get('/set-up', [SetupController::class, 'setup_address']);
 Route::get('/set-up/provinces', [SetupController::class, 'setup_provinces'])->name('set-up.provinces');
 Route::get('/', function () {
