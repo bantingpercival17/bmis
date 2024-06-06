@@ -1,4 +1,11 @@
 <?php return array (
+  'laravel/breeze' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Laravel\\Breeze\\BreezeServiceProvider',
+    ),
+  ),
   'laravel/fortify' => 
   array (
     'providers' => 
@@ -43,6 +50,13 @@
     'aliases' => 
     array (
       'Livewire' => 'Livewire\\Livewire',
+    ),
+  ),
+  'livewire/volt' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Livewire\\Volt\\VoltServiceProvider',
     ),
   ),
   'nesbot/carbon' => 

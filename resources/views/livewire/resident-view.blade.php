@@ -1,3 +1,4 @@
+@section('page-title', 'Residents')
 <div>
     <div class="page-breadcrumb">
         <div class="row align-items-center">
@@ -18,65 +19,98 @@
                                 placeholder="Search Pattern: Last Name, First Name">
                         </div>
                         <div class="form-group">
-                            <small class="text-secondary ">REGION <span class="text-danger">*</span></small>
-                            <select wire:change="selectAddress" wire:model="residents.region"
+                            <small class="text-secondary ">GENDER</small>
+                            <select wire:change="selectAddress" wire:model="filter.gender"
                                 class="form-select border border-info">
-                                <option selected>Select Region</option>
-                                @foreach ($regionList as $region)
-                                    <option value="{{ $region->id }}">
-                                        {{ $region->abbreviation . ' - ' . $region->region_name }}</option>
-                                @endforeach
+                                <option selected>Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
-                            @error('residents.region')
-                                <small class="badge bg-danger mt-2">{{ $message }}</small>
-                            @enderror
                         </div>
                         <div class="form-group">
-                            <small class="text-secondary ">PROVINCE <span class="text-danger">*</span></small>
-                            <select wire:model="residents.province"
-                                wire:change="selectAddress"class="form-select border border-info">
-                                <option selected>Select Province</option>
-                                @forelse ($provinceList as $item)
-                                    <option value="{{ $item->id }}">{{ $item->province_name }}</option>
-                                @empty
-                                @endforelse
+                            <small class="text-secondary ">CIVIL STATUS</small>
+                            <select wire:change="selectAddress" wire:model="filter.civil_status"
+                                class="form-select border border-info">
+                                <option selected>Select Civil Status</option>
+                                <option value="single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Widowed">Widowed</option>
+                                <option value="Divorced">Divorced</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <small class="text-secondary ">AGE GROUP NAME</small>
+                            <select wire:change="selectAddress" wire:model="filter.age_group_name"
+                                class="form-select border border-info">
+                                <option selected>Select Group Name</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        @if (Auth::user()->user_role->role_id == 1)
+                            <div class="form-group">
+                                <small class="text-secondary ">REGION <span class="text-danger">*</span></small>
+                                <select wire:change="selectAddress" wire:model="residents.region"
+                                    class="form-select border border-info">
+                                    <option selected>Select Region</option>
+                                    @foreach ($regionList as $region)
+                                        <option value="{{ $region->id }}">
+                                            {{ $region->abbreviation . ' - ' . $region->region_name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('residents.region')
+                                    <small class="badge bg-danger mt-2">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <small class="text-secondary ">PROVINCE <span class="text-danger">*</span></small>
+                                <select wire:model="residents.province" wire:change="selectAddress"
+                                    class="form-select border border-info">
+                                    <option selected>Select Province</option>
+                                    @forelse ($provinceList as $item)
+                                        <option value="{{ $item->id }}">{{ $item->province_name }}</option>
+                                    @empty
+                                    @endforelse
 
-                            </select>
-                            @error('residents.province')
-                                <small class="badge bg-danger mt-2">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <small class="text-secondary ">MUNICIPALITY / CITY <span
-                                    class="text-danger">*</span></small>
-                            <select wire:model="residents.municipality" wire:change="selectAddress"
-                                class="form-select border border-info">
-                                <option selected>Select Municipality / City</option>
-                                @forelse ($municipalityList as $item)
-                                    <option value="{{ $item->id }}">{{ $item->municipality_name }}</option>
-                                @empty
-                                @endforelse
-                            </select>
-                            @error('residents.municipality')
-                                <small class="badge bg-danger mt-2">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <small class="text-secondary ">BARANGAY<span class="text-danger">*</span></small>
-                            <select wire:model="residents.barangay" wire:change="selectAddress"
-                                class="form-select border border-info">
-                                <option selected>Select Barangay</option>
-                                @forelse ($barangayList as $item)
-                                    <option value="{{ $item->id }}">{{ $item->barangay_name }}</option>
-                                @empty
-                                @endforelse
-                            </select>
-                            @error('residents.barangay')
-                                <small class="badge bg-danger mt-2">{{ $message }}</small>
-                            @enderror
-                        </div>
+                                </select>
+                                @error('residents.province')
+                                    <small class="badge bg-danger mt-2">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <small class="text-secondary ">MUNICIPALITY / CITY <span
+                                        class="text-danger">*</span></small>
+                                <select wire:model="residents.municipality" wire:change="selectAddress"
+                                    class="form-select border border-info">
+                                    <option selected>Select Municipality / City</option>
+                                    @forelse ($municipalityList as $item)
+                                        <option value="{{ $item->id }}">{{ $item->municipality_name }}</option>
+                                    @empty
+                                    @endforelse
+                                </select>
+                                @error('residents.municipality')
+                                    <small class="badge bg-danger mt-2">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <small class="text-secondary ">BARANGAY<span class="text-danger">*</span></small>
+                                <select wire:model="residents.barangay" wire:change="selectAddress"
+                                    class="form-select border border-info">
+                                    <option selected>Select Barangay</option>
+                                    @forelse ($barangayList as $item)
+                                        <option value="{{ $item->id }}">{{ $item->barangay_name }}</option>
+                                    @empty
+                                    @endforelse
+                                </select>
+                                @error('residents.barangay')
+                                    <small class="badge bg-danger mt-2">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        @endif
 
-        {{json_encode($residents) }}
+
+
                         {{-- @livewire('resident.add-resident-information') --}}
                     </div>
                 </div>
@@ -86,10 +120,14 @@
                     <div class="card-header bg-white">
                         <span class="h3 fw-bolder text-primary">Residents List</span>
                         <a href="{{ route('resident.add') }}" class="btn btn-primary float-end">Add Resident's</a>
-                       {{--  <button class="btn btn-info float-end" wire:click="generateFakeData">GENERATE FAKE
-                            RESIDENT</button> --}}
+                        <!--   <button class="btn btn-info float-end" wire:click="generateFakeData">GENERATE FAKE
+                            RESIDENT</button> -->
                     </div>
                     <div class="card-body">
+                        <div class="form-group text-end">
+                            <label for="" class="text-muted fw-bolder">Result: <span
+                                    class="text-info fw-bolder">{{ count($residentLists) }}</span></label>
+                        </div>
                         <div class="table-responsive">
                             <table class="table stylish-table no-wrap">
                                 <thead>

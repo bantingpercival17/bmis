@@ -15,6 +15,7 @@ class ViewInformation extends Component
     public $updateForm = false;
     public $addressForm = false;
     public $input = 'disabled';
+    public $header;
     public $searchInput = null;
 
     public $residents = array(
@@ -39,6 +40,7 @@ class ViewInformation extends Component
     ];
     public function mount($data)
     {
+        $this->header = "Resident's";
         $this->data = $data;
     }
     public function render()

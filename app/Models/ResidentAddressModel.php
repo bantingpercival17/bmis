@@ -11,7 +11,7 @@ class ResidentAddressModel extends Model
     protected $fillable = [
         'resident_id',
         'region_id', 'province_id',   'municipality_id',
-        'barangay_id',   'street'
+        'barangay_id',   'street', 'created_by'
     ];
 
     function resident()

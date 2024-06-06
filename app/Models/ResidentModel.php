@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ResidentModel extends Model
 {
     use HasFactory;
-    protected $fillable = ['first_name', 'last_name', 'middle_name', 'extension_name', 'birth_date', 'birth_place', 'sex', 'religion', 'civil_status', 'contact_number'];
+    protected $fillable = ['first_name', 'last_name', 'middle_name', 'extension_name', 'birth_date', 'birth_place', 'sex', 'religion', 'civil_status', 'contact_number','created_by'];
 
     function address_list()
     {

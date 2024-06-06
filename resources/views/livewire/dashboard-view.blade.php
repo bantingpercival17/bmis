@@ -1,236 +1,151 @@
+@section('page-title','Dashboard')
 <div>
-    <div class="page-breadcrumb">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-8 align-self-center">
-                <h3 class="page-title mb-0 p-0">Dashboard</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-md-flex align-items-center mb-3 mx-2">
+                <div class="mb-md-0 mb-3">
+                    <h3 class="font-weight-bold mb-0">Hello, {{Auth::user()->name}}</h3>
+                    <p class="mb-0">Apps you might like!</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card card-body">
-                    <!-- Row -->
-                    <div class="row align-items-center">
-                        <div class="col-6">
-                            <h1 class="fw-light">86</h1>
-                            <h6 class="text-muted mb-0">TOTAL RESIDENT'S</h6>
-                        </div>
-                        <div class="col-6 text-end align-self-center">
-
-                        </div>
+    <hr class="my-0">
+    <div class="row mt-3">
+        <div class="col-xl-3 col-sm-6 mb-xl-0">
+            <div class="card border shadow-xs mb-4">
+                <div class="card-body text-start p-3 w-100">
+                    <div class="icon icon-shape icon-sm bg-dark text-white text-center border-radius-sm d-flex align-items-center justify-content-center mb-3">
+                        <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4.5 3.75a3 3 0 00-3 3v.75h21v-.75a3 3 0 00-3-3h-15z" />
+                            <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 003 3h15a3 3 0 003-3v-7.5zm-18 3.75a.75.75 0 01.75-.75h6a.75.75 0 010 1.5h-6a.75.75 0 01-.75-.75zm.75 2.25a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z" clip-rule="evenodd" />
+                        </svg>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card card-body">
-                    <!-- Row -->
-                    <div class="row align-items-center">
-                        <div class="col-6">
-                            <h1 class="fw-light">2</h1>
-                            <h6 class="text-muted mb-0">BUSINESS</h6>
-                        </div>
-                        <div class="col-6 text-end align-self-center">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card card-body">
-                    <!-- Row -->
-                    <div class="row align-items-center">
-                        <div class="col-6">
-                            <h1 class="fw-light">352</h1>
-                            <h6 class="text-muted mb-0">INCIDENT REPORTS</h6>
-                        </div>
-                        <div class="col-6 text-end align-self-center">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card card-body">
-                    <!-- Row -->
-                    <div class="row align-items-center">
-                        <div class="col-6">
-                            <h1 class="fw-light">159</h1>
-                            <h6 class="text-muted mb-0">VACANT JOBS</h6>
-                        </div>
-                        <div class="col-6 text-end align-self-center">
-                            <div id="invoices" style="min-height: 97.7px;">
-                                <div id="apexchartsfdqbujpph" class="apexcharts-canvas apexchartsfdqbujpph apexcharts-theme-light" style="width: 95px; height: 97.7px;"><svg id="SvgjsSvg1518" width="95" height="97.7" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;">
-                                        <foreignObject x="0" y="0" width="95" height="97.7">
-                                            <div class="apexcharts-legend" xmlns="http://www.w3.org/1999/xhtml"></div>
-                                        </foreignObject>
-                                        <g id="SvgjsG1520" class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)">
-                                            <defs id="SvgjsDefs1519">
-                                                <clipPath id="gridRectMaskfdqbujpph">
-                                                    <rect id="SvgjsRect1521" width="101" height="97" x="-3" y="-1" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect>
-                                                </clipPath>
-                                                <clipPath id="forecastMaskfdqbujpph"></clipPath>
-                                                <clipPath id="nonForecastMaskfdqbujpph"></clipPath>
-                                                <clipPath id="gridRectMarkerMaskfdqbujpph">
-                                                    <rect id="SvgjsRect1522" width="99" height="99" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect>
-                                                </clipPath>
-                                            </defs>
-                                            <g id="SvgjsG1523" class="apexcharts-pie">
-                                                <g id="SvgjsG1524" transform="translate(0, 0) scale(1)">
-                                                    <circle id="SvgjsCircle1525" r="34.29024390243902" cx="47.5" cy="47.5" fill="transparent"></circle>
-                                                    <g id="SvgjsG1526" class="apexcharts-slices">
-                                                        <g id="SvgjsG1527" class="apexcharts-series apexcharts-pie-series" seriesName="60" rel="1" data:realIndex="0">
-                                                            <path id="SvgjsPath1528" d="M 47.5 7.158536585365852 A 40.34146341463415 40.34146341463415 0 1 1 23.787882748981698 80.13692948039423 L 27.344700336634443 75.24139005833509 A 34.29024390243902 34.29024390243902 0 1 0 47.5 13.209756097560977 L 47.5 7.158536585365852 z" fill="var(--bs-success)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-pie-area apexcharts-donut-slice-0" index="0" j="0" data:angle="216" data:startAngle="0" data:strokeWidth="0" data:value="60" data:pathOrig="M 47.5 7.158536585365852 A 40.34146341463415 40.34146341463415 0 1 1 23.787882748981698 80.13692948039423 L 27.344700336634443 75.24139005833509 A 34.29024390243902 34.29024390243902 0 1 0 47.5 13.209756097560977 L 47.5 7.158536585365852 z"></path>
-                                                        </g>
-                                                        <g id="SvgjsG1529" class="apexcharts-series apexcharts-pie-series" seriesName="40" rel="2" data:realIndex="1">
-                                                            <path id="SvgjsPath1530" d="M 23.787882748981698 80.13692948039423 A 40.34146341463415 40.34146341463415 0 0 1 47.492959086419155 7.158537199801472 L 47.49401522345629 13.209756619831253 A 34.29024390243902 34.29024390243902 0 0 0 27.344700336634443 75.24139005833509 L 23.787882748981698 80.13692948039423 z" fill="rgba(159,160,165,1)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-pie-area apexcharts-donut-slice-1" index="0" j="1" data:angle="144" data:startAngle="216" data:strokeWidth="0" data:value="40" data:pathOrig="M 23.787882748981698 80.13692948039423 A 40.34146341463415 40.34146341463415 0 0 1 47.492959086419155 7.158537199801472 L 47.49401522345629 13.209756619831253 A 34.29024390243902 34.29024390243902 0 0 0 27.344700336634443 75.24139005833509 L 23.787882748981698 80.13692948039423 z"></path>
-                                                        </g>
-                                                    </g>
-                                                </g>
-                                                <g id="SvgjsG1531" class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)"><text id="SvgjsText1532" font-family="inherit" x="47.5" y="54.5" text-anchor="middle" dominant-baseline="auto" font-size="14px" font-weight="500" fill="var(--bs-success)" class="apexcharts-text apexcharts-datalabel-label" style="font-family: inherit;">159</text></g>
-                                            </g>
-                                            <line id="SvgjsLine1533" x1="0" y1="0" x2="95" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt" class="apexcharts-ycrosshairs"></line>
-                                            <line id="SvgjsLine1534" x1="0" y1="0" x2="95" y2="0" stroke-dasharray="0" stroke-width="0" stroke-linecap="butt" class="apexcharts-ycrosshairs-hidden"></line>
-                                        </g>
-                                    </svg>
-                                    <div class="apexcharts-tooltip apexcharts-theme-dark">
-                                        <div class="apexcharts-tooltip-series-group" style="order: 1;"><span class="apexcharts-tooltip-marker" style="background-color: var(--bs-success);"></span>
-                                            <div class="apexcharts-tooltip-text" style="font-family: inherit; font-size: 12px;">
-                                                <div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-y-label"></span><span class="apexcharts-tooltip-text-y-value"></span></div>
-                                                <div class="apexcharts-tooltip-goals-group"><span class="apexcharts-tooltip-text-goals-label"></span><span class="apexcharts-tooltip-text-goals-value"></span></div>
-                                                <div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div>
-                                            </div>
-                                        </div>
-                                        <div class="apexcharts-tooltip-series-group" style="order: 2;"><span class="apexcharts-tooltip-marker" style="background-color: rgb(159, 160, 165);"></span>
-                                            <div class="apexcharts-tooltip-text" style="font-family: inherit; font-size: 12px;">
-                                                <div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-y-label"></span><span class="apexcharts-tooltip-text-y-value"></span></div>
-                                                <div class="apexcharts-tooltip-goals-group"><span class="apexcharts-tooltip-text-goals-label"></span><span class="apexcharts-tooltip-text-goals-value"></span></div>
-                                                <div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="w-100">
+                                <p class="text-sm text-secondary mb-1">TOTAL RESIDENTS</p>
+                                <h4 class="mb-2 font-weight-bold">0</h4>
+                                <!-- <div class="d-flex align-items-center">
+                                    <span class="text-sm text-success font-weight-bolder">
+                                        <i class="fa fa-chevron-up text-xs me-1"></i>10.5%
+                                    </span>
+                                    <span class="text-sm ms-1">from $89,740.00</span>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-7">
-                <!--   <div class="card">
-                    <div class="card-body">
-                        <div class="d-md-flex">
-                            <h4 class="card-title col-md-10 mb-md-0 mb-3 align-self-center">Current Barangay
-                                Official</h4>
-                        </div>
-                        <div class="table-responsive mt-5">
-                            <table class="table stylish-table no-wrap">
-                                <thead>
-                                    <tr>
-                                        <th class="border-top-0" colspan="2">Full Name</th>
-                                        <th class="border-top-0">Barangay Position</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td style="width:50px;"><span class="round">S</span></td>
-                                        <td class="align-middle">
-                                            <h6>Sunil Joshi</h6><small class="text-muted">Newly Elected</small>
-                                        </td>
-                                        <td class="align-middle">Barangay Captain</td>
-                                    </tr>
-                                    <tr class="active">
-                                        <td><span class="round"><img src="../assets/images/users/2.jpg" alt="user"
-                                                    width="50"></span></td>
-                                        <td class="align-middle">
-                                            <h6>Andrew</h6><small class="text-muted">Newly Elected</small>
-                                        </td>
-                                        <td class="align-middle">Counselor</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="round round-success">B</span></td>
-                                        <td class="align-middle">
-                                            <h6>Bhavesh patel</h6><small class="text-muted">Re-elected</small>
-                                        </td>
-                                        <td class="align-middle">Counselor</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="round round-primary">N</span></td>
-                                        <td class="align-middle">
-                                            <h6>Nirav Joshi</h6><small class="text-muted">Newly Elected</small>
-                                        </td>
-                                        <td class="align-middle">Counselor</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="round round-warning">M</span></td>
-                                        <td class="align-middle">
-                                            <h6>Micheal Doe</h6><small class="text-muted">Newly Elected</small>
-                                        </td>
-                                        <td class="align-middle">Counselor</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="round round-danger">N</span></td>
-                                        <td class="align-middle">
-                                            <h6>Johnathan</h6><small class="text-muted">Re-Elected</small>
-                                        </td>
-                                        <td class="align-middle">Counselor</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+        <div class="col-xl-3 col-sm-6 mb-xl-0">
+            <div class="card border shadow-xs mb-4">
+                <div class="card-body text-start p-3 w-100">
+                    <div class="icon icon-shape icon-sm bg-dark text-white text-center border-radius-sm d-flex align-items-center justify-content-center mb-3">
+                        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.936 2.752A24.726 24.726 0 0112 15.75c-2.73 0-5.357-.442-7.814-1.259-1.202-.4-1.936-1.541-1.936-2.752V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-3 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+                            <path d="M3 18.4v-2.796a4.3 4.3 0 00.713.31A26.226 26.226 0 0012 17.25c2.892 0 5.68-.468 8.287-1.335.252-.084.49-.189.713-.311V18.4c0 1.452-1.047 2.728-2.523 2.923-2.12.282-4.282.427-6.477.427a49.19 49.19 0 01-6.477-.427C4.047 21.128 3 19.852 3 18.4z" />
+                        </svg>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="w-100">
+                                <p class="text-sm text-secondary mb-1">PWD</p>
+                                <h4 class="mb-2 font-weight-bold">0</h4>
+                                <!-- <div class="d-flex align-items-center">
+                                    <span class="text-sm text-success font-weight-bolder">
+                                        <i class="fa fa-chevron-up text-xs me-1"></i>55%
+                                    </span>
+                                    <span class="text-sm ms-1">from 243</span>
+                                </div> -->
+                            </div>
                         </div>
                     </div>
-                </div> -->
-
+                </div>
             </div>
-            <div class="col-lg-5">
-                <!--  <h2 class="card-title col-md-10 mb-md-0 mb-3 align-self-center text-primary">RESIDENTS RECORD SUMMARY
-                </h2>
-                <div class="row mt-3">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">TOTAL POPULATION</h4>
-                                <div class="text-start">
-                                    <h2 class="fw-bolder text-success mb-0">120</h2>
-                                </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0">
+            <div class="card border shadow-xs mb-4">
+                <div class="card-body text-start p-3 w-100">
+                    <div class="icon icon-shape icon-sm bg-dark text-white text-center border-radius-sm d-flex align-items-center justify-content-center mb-3">
+                        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm4.5 7.5a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zm3.75-1.5a.75.75 0 00-1.5 0v4.5a.75.75 0 001.5 0V12zm2.25-3a.75.75 0 01.75.75v6.75a.75.75 0 01-1.5 0V9.75A.75.75 0 0113.5 9zm3.75-1.5a.75.75 0 00-1.5 0v9a.75.75 0 001.5 0v-9z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="w-100">
+                                <p class="text-sm text-secondary mb-1">SENIOR</p>
+                                <h4 class="mb-2 font-weight-bold">8</h4>
+                                <!--  <div class="d-flex align-items-center">
+                                    <span class="text-sm text-success font-weight-bolder">
+                                        <i class="fa fa-chevron-up text-xs me-1"></i>22%
+                                    </span>
+                                    <span class="text-sm ms-1">from $369.30</span>
+                                </div> -->
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">REGISTER VOTERS</h4>
-                                <div class="text-start">
-                                    <h2 class="fw-bolder text-success mb-0">50</h2>
-                                </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+            <div class="card border shadow-xs mb-4">
+                <div class="card-body text-start p-3 w-100">
+                    <div class="icon icon-shape icon-sm bg-dark text-white text-center border-radius-sm d-flex align-items-center justify-content-center mb-3">
+                        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.25 2.25a3 3 0 00-3 3v4.318a3 3 0 00.879 2.121l9.58 9.581c.92.92 2.39 1.186 3.548.428a18.849 18.849 0 005.441-5.44c.758-1.16.492-2.629-.428-3.548l-9.58-9.581a3 3 0 00-2.122-.879H5.25zM6.375 7.5a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="w-100">
+                                <p class="text-sm text-secondary mb-1">BLOTTER CASE</p>
+                                <h4 class="mb-2 font-weight-bold">-</h4>
+                                <!-- <div class="d-flex align-items-center">
+                                    <span class="text-sm text-success font-weight-bolder">
+                                        <i class="fa fa-chevron-up text-xs me-1"></i>18%
+                                    </span>
+                                    <span class="text-sm ms-1">from $19,800.40</span>
+                                </div> -->
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">MALE</h4>
-                                <div class="text-start">
-                                    <h2 class="fw-bolder text-success mb-0">70</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">FEMALE</h4>
-                                <div class="text-start">
-                                    <h2 class="fw-bolder text-success mb-0">50</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
+                </div>
             </div>
         </div>
     </div>
-
+    <!-- <div class="row">
+        <div class="col-lg-12">
+            <div class="card shadow-xs border">
+                <div class="card-header pb-0">
+                    <div class="d-sm-flex align-items-center mb-3">
+                        <div>
+                            <h6 class="font-weight-semibold text-lg mb-0">Overview balance</h6>
+                            <p class="text-sm mb-sm-0 mb-2">Here you have details about the balance.</p>
+                        </div>
+                        <div class="ms-auto d-flex">
+                            <button type="button" class="btn btn-sm btn-white mb-0 me-2">
+                                View report
+                            </button>
+                        </div>
+                    </div>
+                    <div class="d-sm-flex align-items-center">
+                        <h3 class="mb-0 font-weight-semibold">$87,982.80</h3>
+                        <span class="badge badge-sm border border-success text-success bg-success border-radius-sm ms-sm-3 px-2">
+                            <svg width="9" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.46967 4.46967C0.176777 4.76256 0.176777 5.23744 0.46967 5.53033C0.762563 5.82322 1.23744 5.82322 1.53033 5.53033L0.46967 4.46967ZM5.53033 1.53033C5.82322 1.23744 5.82322 0.762563 5.53033 0.46967C5.23744 0.176777 4.76256 0.176777 4.46967 0.46967L5.53033 1.53033ZM5.53033 0.46967C5.23744 0.176777 4.76256 0.176777 4.46967 0.46967C4.17678 0.762563 4.17678 1.23744 4.46967 1.53033L5.53033 0.46967ZM8.46967 5.53033C8.76256 5.82322 9.23744 5.82322 9.53033 5.53033C9.82322 5.23744 9.82322 4.76256 9.53033 4.46967L8.46967 5.53033ZM1.53033 5.53033L5.53033 1.53033L4.46967 0.46967L0.46967 4.46967L1.53033 5.53033ZM4.46967 1.53033L8.46967 5.53033L9.53033 4.46967L5.53033 0.46967L4.46967 1.53033Z" fill="#67C23A"></path>
+                            </svg>
+                            10.5%
+                        </span>
+                    </div>
+                </div>
+                <div class="card-body p-3">
+                    <div class="chart mt-n6">
+                        <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
 </div>

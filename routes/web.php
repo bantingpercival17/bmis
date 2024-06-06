@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SetupController;
+use App\Livewire\Account\AccountView;
 use App\Livewire\DashboardView;
 use App\Livewire\IncidentReportAdd;
 use App\Livewire\IncidentReportView;
@@ -8,7 +9,7 @@ use App\Livewire\Resident\AddInformation;
 use App\Livewire\Resident\ViewInformation;
 use App\Livewire\ResidentView;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Artisan;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,16 +21,43 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Route::get('/migrate', function () {
+/* Route::get('/migrate', function () {
     Artisan::migrate();
-});
+}); */
+
 Route::get('/set-up', [SetupController::class, 'setup_address']);
 Route::get('/set-up/provinces', [SetupController::class, 'setup_provinces'])->name('set-up.provinces');
 Route::get('/', function () {
     return redirect(route('login'));
 });
 
-Route::middleware([
+
+Route::prefix('administrator')->middleware(['auth', 'administrator'])
+    ->group(function () {
+
+        require __DIR__ . '/module-routes/accounts-route.php';
+        require __DIR__ . '/module-routes/residents-route.php';
+        require __DIR__ . '/module-routes/incident-route.php';
+        Route::get('/', DashboardView::class)->name('dashboard');
+        Route::get('/dashboard', DashboardView::class)->name('dashboard');
+        /*  require __DIR__ . '/module-routes/accounts-route.php'; */
+    });
+
+Route::prefix('barangay')->middleware(['auth', 'barangay'])
+    ->group(function () {
+        require __DIR__ . '/module-routes/residents-route.php';
+        require __DIR__ . '/module-routes/incident-route.php';
+        Route::get('/', DashboardView::class)->name('dashboard');
+        Route::get('/dashboard', DashboardView::class)->name('dashboard');
+    });
+
+
+
+
+
+
+
+/* Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
@@ -44,4 +72,19 @@ Route::middleware([
         Route::get('/',  IncidentReportView::class)->name('incident-report.view');
         Route::get('/add',  IncidentReportAdd::class)->name('incident-report.add');
     });
-});
+
+
+    Route::prefix('/accounts')->group(function () {
+        Route::get('/', AccountView::class)->name('account.view');
+    });
+}); */
+
+/* Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+Route::view('profile', 'profile')
+    ->middleware(['auth'])
+    ->name('profile');
+ */
+require __DIR__ . '/auth.php';

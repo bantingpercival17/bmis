@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('civil_status');
             $table->string('contact_number')->nullable();
             $table->boolean('is_removed')->default(0);
+            $table->unsignedBigInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }

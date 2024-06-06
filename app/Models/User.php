@@ -58,4 +58,17 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    function roles()
+    {
+        return $this->hasMany(UserRoles::class, 'user_id')->where('is_active', true);
+    }
+    function user_role()
+    {
+        return $this->hasOne(UserRoles::class, 'user_id')->where('is_active', true);
+    }
+    function user_address()
+    {
+        return $this->hasOne(UserAddress::class, 'user_id');
+    }
 }

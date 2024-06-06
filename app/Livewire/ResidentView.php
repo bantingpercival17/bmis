@@ -11,6 +11,7 @@ use App\Models\MunicipalityModel;
 use App\Models\ProvinceModel;
 use App\Models\RegionModel;
 use App\Models\ResidentAddressModel;
+use Illuminate\Support\Facades\Auth;
 
 class ResidentView extends Component
 {
@@ -19,6 +20,10 @@ class ResidentView extends Component
     public $searchInput = null;
     public $residents = array(
         'region' => null, 'province' => null, 'municipality' => null, 'barangay' => null, 'street' => ''
+    );
+
+    public $filter = array(
+        'gender' => null, 'civil_status' => null, 'age_group_name' => null
     );
 
     public function render()
@@ -46,20 +51,17 @@ class ResidentView extends Component
     }
     function resident_list($searchInput)
     {
-        $dataLists = ResidentModel::select('*');
-        if ($this->residents['region'] != null) {
-            $dataLists->join('resident_address_models', 'resident_address_models.resident_id', 'resident_models.id')
-                ->where('resident_address_models.region_id', $this->residents['region']);
-            if ($this->residents['province'] != null) {
-                $dataLists->where('resident_address_models.province_id', $this->residents['province']);
-            }
-            if ($this->residents['municipality'] != null) {
-                $dataLists->where('resident_address_models.municipality_id', $this->residents['municipality']);
-            }
-            if ($this->residents['barangay'] != null) {
-                $dataLists->where('resident_address_models.barangay_id', $this->residents['barangay']);
-            }
+        $dataLists = ResidentModel::select('*')
+            ->join('resident_address_models', 'resident_address_models.resident_id', 'resident_models.id')
+            ->where('resident_address_models.region_id', Auth::user()->user_address->region_id)
+            ->where('resident_address_models.barangay_id', Auth::user()->user_address->barangay_id);
+        if ($this->filter['gender']) {
+            $dataLists->where('resident_models.sex', $this->filter['gender']);
         }
+        if ($this->filter['civil_status']) {
+            $dataLists->where('resident_models.civil_status', $this->filter['civil_status']);
+        }
+
         if ($searchInput != '') {
 
             $data = explode(',', $searchInput); // Seperate the Sentence
