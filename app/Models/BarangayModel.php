@@ -14,4 +14,9 @@ class BarangayModel extends Model
         'municipality_id',
         'barangay_name',
     ];
+
+    function total_residents()
+    {
+        return $this->hasMany(ResidentAddressModel::class, 'barangay_id')->where('is_removed', false);
+    }
 }

@@ -7,18 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Noto+Sans:300,400,500,600,700,800|PT+Mono:300,400,500,600,700"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Noto+Sans:300,400,500,600,700,800|PT+Mono:300,400,500,600,700" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/349ee9c857.js" crossorigin="anonymous"></script>
 
-    <!-- Fonts -->
-    <!--     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
- -->
-    <!--  <link rel="stylesheet" href="{{ asset('build/assets/app-d2e4b14d.css') }}"> -->
-    <!-- Scripts -->
-    <!--  @vite(['resources/css/app.css', 'resources/js/app.js']) -->
     <!-- Nucleo Icons -->
     <link href="{{ asset('/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
     <link href="{{ asset('/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
@@ -37,10 +28,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="position-absolute w-40 top-0 end-0 h-100 d-md-block d-none">
-                                <div class="oblique-image position-absolute fixed-top ms-auto h-100 z-index-0 bg-cover ms-n8"
-                                    style="background-image:url('../assets/img/image-sign-in.jpg')">
-                                    <div
-                                        class="blur mt-12 p-4 text-center border border-white border-radius-md position-absolute fixed-bottom m-4">
+                                <div class="oblique-image position-absolute fixed-top ms-auto h-100 z-index-0 bg-cover ms-n8" style="background-image:url('../assets/img/image-sign-in.jpg')">
+                                    <div class="blur mt-12 p-4 text-center border border-white border-radius-md position-absolute fixed-bottom m-4">
                                         <h2 class="mt-3 text-dark font-weight-bold">Empowering Communities with an
                                             Interactive Digital Platform.</h2>
                                         <h6 class="text-dark text-sm mt-5">BA-DI</h6>
