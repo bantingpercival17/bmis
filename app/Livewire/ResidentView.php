@@ -51,7 +51,7 @@ class ResidentView extends Component
     }
     function resident_list($searchInput)
     {
-        $dataLists = ResidentModel::select('*')
+        $dataLists = ResidentModel::select('resident_models.*')
             ->join('resident_address_models', 'resident_address_models.resident_id', 'resident_models.id')
             ->where('resident_address_models.region_id', Auth::user()->user_address->region_id)
             ->where('resident_address_models.barangay_id', Auth::user()->user_address->barangay_id);
@@ -76,7 +76,7 @@ class ResidentView extends Component
                     ->orderBy('last_name', 'asc');
             }
         }
-        return $dataLists->get();
+        return $dataLists->orderByDesc('id')->get();
     }
     function auto()
     {

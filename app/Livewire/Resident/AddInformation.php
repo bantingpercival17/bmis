@@ -8,6 +8,7 @@ use App\Models\ProvinceModel;
 use App\Models\RegionModel;
 use App\Models\ResidentAddressModel;
 use App\Models\ResidentModel;
+use App\Providers\FilipinoNameProvider;
 use Livewire\Component;
 use Faker\Factory as FakerFactory;
 use Illuminate\Support\Facades\Auth;
@@ -99,15 +100,16 @@ class AddInformation extends Component
     function generateFakeData()
     {
         $faker = FakerFactory::create();
-
+        $faker->addProvider(new FilipinoNameProvider($faker));
+        $sex = $faker->randomElement(['Male', 'Female']);
         $data = [
-            'first_name' => $faker->firstName,
-            'last_name' => $faker->lastName,
-            'middle_name' => $faker->firstName,
-            'extension_name' => $faker->suffix,
+            'first_name' => $faker->filipinoName($sex),
+            'last_name' => $faker->filipinoLastName(),
+            'middle_name' => $faker->filipinoLastName(),
+            'extension_name' => $sex === 'Male' ? $faker->suffix : 'n.a',
             'birth_date' => $faker->date,
             'birth_place' => $faker->city,
-            'sex' => $faker->randomElement(['Male', 'Female']),
+            'sex' => $sex,
             'civil_status' => $faker->randomElement(['Single', 'Married', 'Divorced']),
             'religion' => '',
             'contact_number' => $faker->phoneNumber,
