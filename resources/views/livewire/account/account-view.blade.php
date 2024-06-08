@@ -18,7 +18,7 @@
                         </div>
                         <div class="form-group">
                             <small class="text-secondary ">REGION <span class="text-danger">*</span></small>
-                            <select wire:change="selectAddress" wire:model="address.region" class="form-select border border-info">
+                            <select wire:change="" wire:model="address.region" class="form-select border border-info">
                                 <option selected>Select Region</option>
                                 @foreach ($regionList as $region)
                                 <option value="{{ $region->id }}">

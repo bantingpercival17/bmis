@@ -54,6 +54,9 @@ class AddAccount extends Component
         $roleLists = Roles::where('is_removed', false)->get();
         return view('livewire.account.add-account', compact('regionList', 'provinceList', 'municipalityList', 'barangayList', 'roleLists'));
     }
+    function selectAddress()
+    {
+    }
     public function submitForm()
     {
         $this->validate();
@@ -116,8 +119,5 @@ class AddAccount extends Component
             $this->addError('formError', $th->getMessage());
             #return response(['errors' => ['bugs' => $th->getMessage()]], 402);
         }
-    }
-    function selectAddress()
-    {
     }
 }

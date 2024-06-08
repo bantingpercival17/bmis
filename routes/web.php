@@ -5,6 +5,7 @@ use App\Http\Controllers\SetupController;
 use App\Livewire\Administrator\DashboardView as AdministratorDashboardView;
 use App\Livewire\Barangay\BarangayClearanceView;
 use App\Livewire\DashboardView;
+use App\Livewire\Administrator\Regions;
 use App\Livewire\IncidentReportAdd;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,9 @@ Route::prefix('administrator')->middleware(['auth', 'administrator'])
         require __DIR__ . '/module-routes/incident-route.php';
         Route::get('/', AdministratorDashboardView::class)->name('dashboard');
         Route::get('/dashboard', AdministratorDashboardView::class)->name('dashboard');
+        Route::prefix('/regions')->group(function () {
+            Route::get('/',  Regions::class)->name('regions.view');
+        });
         /*  require __DIR__ . '/module-routes/accounts-route.php'; */
     });
 

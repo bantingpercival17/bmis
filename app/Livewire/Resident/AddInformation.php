@@ -83,6 +83,7 @@ class AddInformation extends Component
                 'municipality_id' => $this->residents['municipality'],
                 'barangay_id' => $this->residents['barangay'],
                 'street' => $this->residents['street'],
+                'created_by' => Auth::user()->id
             );
             ResidentAddressModel::create($permanentAddressData);
             $this->reset(['residents']);
