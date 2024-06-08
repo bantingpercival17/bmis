@@ -7,7 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Noto+Sans:300,400,500,600,700,800|PT+Mono:300,400,500,600,700" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/349ee9c857.js" crossorigin="anonymous"></script>
     <!-- Nucleo Icons -->
     <link href="{{ asset('/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
     <link href="{{ asset('/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
@@ -35,7 +36,7 @@
                                 <script>
                                     document.write(new Date().getFullYear())
                                 </script>
-                                {{--   Corporate UI by
+                                {{-- Corporate UI by
                                 <a href="https://www.creative-tim.com" class="text-secondary" target="_blank">Creative
                                     Tim</a>. --}}
                             </div>
@@ -46,7 +47,7 @@
             </footer>
         </div>
     </main>
-    {{--  <div class="fixed-plugin">
+    {{-- <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
             <i class="fa fa-cog py-2"></i>
         </a>
@@ -126,7 +127,7 @@
             </div>
         </div>
     </div> --}}
-    {{--  <div class="min-h-screen bg-gray-100">
+    {{-- <div class="min-h-screen bg-gray-100">
         <livewire:layout.navigation />
 
         <!-- Page Heading -->
@@ -134,14 +135,14 @@
         <header class="bg-white shadow">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 {{ $header }}
-            </div>
-        </header>
-        @endif
+    </div>
+    </header>
+    @endif
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+    <!-- Page Content -->
+    <main>
+        {{ $slot }}
+    </main>
     </div> --}}
 </body>
 <script src="{{ asset('/assets/js/core/popper.min.js') }}"></script>
