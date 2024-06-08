@@ -68,9 +68,7 @@
                                     <div class="d-flex">
                                         <div>
                                             <h4 class="font-weight-semibold text-lg">TOTAL PWD</h4>
-                                            {{-- <p class="text-sm mb-1">Current Balance</p> --}}
                                             <h3 class="mb-0 font-weight-bold float-end">
-                                                5
                                                 {{-- {{ count($barangay->total_residents) }} --}}
                                             </h3>
                                         </div>

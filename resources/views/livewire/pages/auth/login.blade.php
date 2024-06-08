@@ -23,7 +23,9 @@ new #[Layout('layouts.guest')] class extends Component
         Session::regenerate();
 
         $user = Auth::user()->user_role->role->name;
-        $this->redirectIntended(default: '/' . $user . '/dashboard', navigate: true);
+        //echo $user;
+        redirect('/' . $user . '/dashboard');
+        //$this->redirectIntended(default: '/' . $user . '/dashboard', navigate: true);
     }
 }; ?>
 

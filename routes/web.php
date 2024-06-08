@@ -29,6 +29,7 @@ Route::get('/set-up', [SetupController::class, 'setup_address']);
 Route::get('/set-up/provinces', [SetupController::class, 'setup_provinces'])->name('set-up.provinces');
 Route::get('/', function () {
     return redirect(route('login'));
+    //return Auth::user()->user_role->role->name;
 });
 
 

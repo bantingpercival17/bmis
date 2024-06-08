@@ -16,12 +16,7 @@ class Barangay
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $_status = false;
-        foreach (Auth::user()->roles as $key => $role) {
-            if ($role->id == 2) {
-                $_status = true;
-            }
-        }
-        return $_status ? $next($request) : redirect('/');
+        $status = Auth::user()->user_role->role_id === 2 ? true : false;
+        return $status ? $next($request) : redirect('/');
     }
 }
