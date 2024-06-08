@@ -110,8 +110,8 @@
                     <div class="card-header bg-white">
                         <span class="h3 fw-bolder text-primary">Residents List</span>
                         <a href="{{ route('resident.add') }}" class="btn btn-primary float-end">Add Resident's</a>
-                        <small class="btn btn-info float-end" wire:click="generateFakeData">GENERATE FAKE
-                            RESIDENT</small>
+                        {{-- <small class="btn btn-info float-end" wire:click="generateFakeData">GENERATE FAKE
+                            RESIDENT</small> --}}
                     </div>
                     <div class="card-body">
                         <div class="form-group text-end">
