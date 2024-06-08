@@ -19,4 +19,12 @@ class BarangayModel extends Model
     {
         return $this->hasMany(ResidentAddressModel::class, 'barangay_id')->where('is_removed', false);
     }
+
+    function barangay_clearance_issued()
+    {
+        return BarangayClearance::select('barangay_clearances.*')
+            ->join('resident_address_models', 'resident_address_models.id', 'barangay_clearances.resident_address_id')
+            ->where('resident_address_models.barangay_id', $this->id)
+            ->get();
+    }
 }

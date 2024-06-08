@@ -71,7 +71,73 @@
                                             {{-- <p class="text-sm mb-1">Current Balance</p> --}}
                                             <h3 class="mb-0 font-weight-bold float-end">
                                                 5
-                                                {{--  {{ count($barangay->total_residents) }} --}}
+                                                {{-- {{ count($barangay->total_residents) }} --}}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-info fw-bolder h4">TRANSACTION</p>
+            <div class="row">
+                <div class="col-md">
+                    <div class="card shadow-xs border mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 pe-1">
+                                    <div class="text-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="80" width="80"
+                                            viewBox="0 0 18 18" fill="currentColor">
+                                            <title>file content</title>
+                                            <g>
+                                                <path
+                                                    d="M15.487,5.427l-3.914-3.914c-.331-.331-.77-.513-1.237-.513H4.75c-1.517,0-2.75,1.233-2.75,2.75V14.25c0,1.517,1.233,2.75,2.75,2.75H13.25c1.517,0,2.75-1.233,2.75-2.75V6.664c0-.467-.182-.907-.513-1.237Zm-9.737,.573h2c.414,0,.75,.336,.75,.75s-.336,.75-.75,.75h-2c-.414,0-.75-.336-.75-.75s.336-.75,.75-.75Zm6.5,7.5H5.75c-.414,0-.75-.336-.75-.75s.336-.75,.75-.75h6.5c.414,0,.75,.336,.75,.75s-.336,.75-.75,.75Zm0-3H5.75c-.414,0-.75-.336-.75-.75s.336-.75,.75-.75h6.5c.414,0,.75,.336,.75,.75s-.336,.75-.75,.75Zm2.182-4h-2.932c-.55,0-1-.45-1-1V2.579l.013-.005,3.922,3.921-.002,.005Z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="d-flex">
+                                        <div>
+                                            <h4 class="font-weight-semibold text-lg">BARANGAY CLEARANCE</h4>
+                                            {{-- <p class="text-sm mb-1">Current Balance</p> --}}
+                                            <h3 class="mb-0 font-weight-bold float-end">
+                                                {{ count($barangay->barangay_clearance_issued()) }}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card shadow-xs border mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 pe-1">
+                                    <div class="text-center">
+                                        <svg width="80" height="80" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.936 2.752A24.726 24.726 0 0112 15.75c-2.73 0-5.357-.442-7.814-1.259-1.202-.4-1.936-1.541-1.936-2.752V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-3 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                                                clip-rule="evenodd"></path>
+                                            <path
+                                                d="M3 18.4v-2.796a4.3 4.3 0 00.713.31A26.226 26.226 0 0012 17.25c2.892 0 5.68-.468 8.287-1.335.252-.084.49-.189.713-.311V18.4c0 1.452-1.047 2.728-2.523 2.923-2.12.282-4.282.427-6.477.427a49.19 49.19 0 01-6.477-.427C4.047 21.128 3 19.852 3 18.4z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="d-flex">
+                                        <div>
+                                            <h4 class="font-weight-semibold text-lg">BUSINESS PERMITS</h4>
+                                            <h3 class="mb-0 font-weight-bold float-end">
+                                                0
                                             </h3>
                                         </div>
                                     </div>
@@ -86,7 +152,7 @@
             <div class="barangay-map">
                 <label for="" class="fw-bolder text-info h4">BARANGAY MAP</label>
                 <iframe style="width: 100%; height:100%"
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=120.915591,14.9418958,120.925591,14.9618958&layer=mapnik&marker=14.9518958,120.925591">
+                    src="https://www.openstreetmap.org/export/embed.html?bbox={{ $bbox }}&layer=mapnik&marker={{ $marker }}">
                 </iframe>
             </div>
             <div class="barangay-officails">
@@ -97,22 +163,6 @@
                                 <h6 class="font-weight-semibold text-lg mb-0">BARANGAY OFFICAILS</h6>
                                 <p class="text-sm">See information about all members</p>
                             </div>
-                            {{-- <div class="ms-auto d-flex">
-                                <button type="button" class="btn btn-sm btn-white me-2">
-                                    View all
-                                </button>
-                                <button type="button"
-                                    class="btn btn-sm btn-dark btn-icon d-flex align-items-center me-2">
-                                    <span class="btn-inner--icon">
-                                        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 24 24" fill="currentColor" class="d-block me-2">
-                                            <path
-                                                d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z" />
-                                        </svg>
-                                    </span>
-                                    <span class="btn-inner--text">Add member</span>
-                                </button>
-                            </div> --}}
                         </div>
                     </div>
                     <div class="card-body px-0 py-0">
@@ -127,129 +177,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div class="d-flex align-items-center">
-                                                    <img src="../assets/img/team-2.jpg"
-                                                        class="avatar avatar-sm rounded-circle me-2" alt="user1">
+                                    @foreach ($barangayOfficials as $official)
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="{{ $official['image'] }}"
+                                                            class="avatar avatar-sm rounded-circle me-2" alt="user1">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center ms-1">
+                                                        <h6 class="mb-0 text-sm font-weight-semibold">
+                                                            {{ $official['name'] }}</h6>
+                                                    </div>
                                                 </div>
-                                                <div class="d-flex flex-column justify-content-center ms-1">
-                                                    <h6 class="mb-0 text-sm font-weight-semibold">John Michael</h6>
-                                                    <p class="text-sm text-secondary mb-0">john@creative-tim.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-sm text-dark font-weight-semibold mb-0">Manager</p>
-                                            <p class="text-sm text-secondary mb-0">Organization</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div class="d-flex align-items-center">
-                                                    <img src="../assets/img/team-3.jpg"
-                                                        class="avatar avatar-sm rounded-circle me-2" alt="user2">
-                                                </div>
-                                                <div class="d-flex flex-column justify-content-center ms-1">
-                                                    <h6 class="mb-0 text-sm font-weight-semibold">Alexa Liras</h6>
-                                                    <p class="text-sm text-secondary mb-0">alexa@creative-tim.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-sm text-dark font-weight-semibold mb-0">Programator</p>
-                                            <p class="text-sm text-secondary mb-0">Developer</p>
-                                        </td>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm text-dark font-weight-semibold mb-0">
+                                                    {{ $official['position'] }}</p>
+                                            </td>
+                                        </tr>
+                                    @endforeach
 
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div class="d-flex align-items-center">
-                                                    <img src="../assets/img/team-1.jpg"
-                                                        class="avatar avatar-sm rounded-circle me-2" alt="user3">
-                                                </div>
-                                                <div class="d-flex flex-column justify-content-center ms-1">
-                                                    <h6 class="mb-0 text-sm font-weight-semibold">Laurent Perrier</h6>
-                                                    <p class="text-sm text-secondary mb-0">laurent@creative-tim.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-sm text-dark font-weight-semibold mb-0">Executive</p>
-                                            <p class="text-sm text-secondary mb-0">Projects</p>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div class="d-flex align-items-center">
-                                                    <img src="../assets/img/marie.jpg"
-                                                        class="avatar avatar-sm rounded-circle me-2" alt="user4">
-                                                </div>
-                                                <div class="d-flex flex-column justify-content-center ms-1">
-                                                    <h6 class="mb-0 text-sm font-weight-semibold">Michael Levi</h6>
-                                                    <p class="text-sm text-secondary mb-0">michael@creative-tim.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-sm text-dark font-weight-semibold mb-0">Programator</p>
-                                            <p class="text-sm text-secondary mb-0">Developer</p>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div class="d-flex align-items-center">
-                                                    <img src="../assets/img/team-5.jpg"
-                                                        class="avatar avatar-sm rounded-circle me-2" alt="user5">
-                                                </div>
-                                                <div class="d-flex flex-column justify-content-center ms-1">
-                                                    <h6 class="mb-0 text-sm font-weight-semibold">Richard Gran</h6>
-                                                    <p class="text-sm text-secondary mb-0">richard@creative-tim.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-sm text-dark font-weight-semibold mb-0">Manager</p>
-                                            <p class="text-sm text-secondary mb-0">Executive</p>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div class="d-flex align-items-center">
-                                                    <img src="../assets/img/team-6.jpg"
-                                                        class="avatar avatar-sm rounded-circle me-2" alt="user6">
-                                                </div>
-                                                <div class="d-flex flex-column justify-content-center ms-1">
-                                                    <h6 class="mb-0 text-sm font-weight-semibold">Miriam Eric</h6>
-                                                    <p class="text-sm text-secondary mb-0">miriam@creative-tim.com</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-sm text-dark font-weight-semibold mb-0">Programtor</p>
-                                            <p class="text-sm text-secondary mb-0">Developer</p>
-                                        </td>
-
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
-                        {{--  <div class="border-top py-3 px-3 d-flex align-items-center">
-                            <p class="font-weight-semibold mb-0 text-dark text-sm">Page 1 of 10</p>
-                            <div class="ms-auto">
-                                <button class="btn btn-sm btn-white mb-0">Previous</button>
-                                <button class="btn btn-sm btn-white mb-0">Next</button>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>

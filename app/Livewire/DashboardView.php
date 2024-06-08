@@ -6,6 +6,8 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
+use App\Providers\FilipinoNameProvider;
+use Faker\Factory as FakerFactory;
 
 class DashboardView extends Component
 {
@@ -21,7 +23,16 @@ class DashboardView extends Component
         $location = Auth::user()->user_address;
         $address = $location->barangay->barangay_name . ", " . $location->municipality->municipality_name . ", " . $location->province->province_name . ', Philippines';
         $coordinates = $this->getCoordinates($address);
-        return view('livewire.dashboard-view', compact('barangay', 'address', 'coordinates'));
+        $bbox = '';
+        $marker = '';
+        if ($coordinates[0] === 200) {
+            $adjust = 0.001;
+            $bbox = $coordinates['data']['longitude'] - $adjust . ',' . $coordinates['data']['latitude'] - $adjust . ',' . $coordinates['data']['longitude'] + $adjust . ',' . $coordinates['data']['latitude'] + $adjust;
+            $marker = $coordinates['data']['latitude'] . ',' . $coordinates['data']['longitude'];
+        }
+        $barangayOfficials = $this->barangayOfficals();
+        # https://www.openstreetmap.org/export/embed.html?bbox=120.915591,14.9418958,120.925591,14.9618958&layer=mapnik&marker=14.9518958,120.925591
+        return view('livewire.dashboard-view', compact('barangay', 'address', 'bbox', 'marker', 'barangayOfficials'));
     }
 
     public function getCoordinates($address)
@@ -43,15 +54,69 @@ class DashboardView extends Component
             $longitude = $responseData[0]['lon'];
 
             // Return the coordinates
-            return response()->json([
+            return array('data' => array(
                 'latitude' => $latitude,
                 'longitude' => $longitude
-            ]);
+            ), 200);
         } else {
             // Return an error if the response is not valid
-            return response()->json([
-                'error' => 'Unable to geocode the address'
-            ], 400);
+            return array('data' => 'Unable to geocode the address', 404);
         }
+    }
+    function barangayOfficals()
+    {
+        $faker = FakerFactory::create();
+        $faker->addProvider(new FilipinoNameProvider($faker));
+        $fullname = $faker->filipinoName('Male') . ' ' . $faker->filipinoLastName();
+        $offical = array(
+            array(
+                'name' => $fullname,
+                'image' => asset('/assets/avatar/avatar (' . rand(1, 20) . ').png'),
+                'position' => 'Punong Barangay',
+            ),
+            array(
+                'name' => $faker->filipinoName('Male') . ' ' . $faker->filipinoLastName(),
+                'image' => asset('/assets/avatar/avatar (' . rand(1, 20) . ').png'),
+                'position' => 'Sangguniang Barangay Member',
+            ),
+            array(
+                'name' => $faker->filipinoName('Male') . ' ' . $faker->filipinoLastName(),
+                'image' => asset('/assets/avatar/avatar (' . rand(1, 20) . ').png'),
+                'position' => 'Sangguniang Barangay Member',
+            ),
+            array(
+                'name' => $faker->filipinoName('Male') . ' ' . $faker->filipinoLastName(),
+                'image' => asset('/assets/avatar/avatar (' . rand(1, 20) . ').png'),
+                'position' => 'Sangguniang Barangay Member',
+            ),
+            array(
+                'name' => $faker->filipinoName('Male') . ' ' . $faker->filipinoLastName(),
+                'image' => asset('/assets/avatar/avatar (' . rand(1, 20) . ').png'),
+                'position' => 'Sangguniang Barangay Member',
+            ),
+            array(
+                'name' => $faker->filipinoName('Male') . ' ' . $faker->filipinoLastName(),
+                'image' => asset('/assets/avatar/avatar (' . rand(1, 20) . ').png'),
+                'position' => 'Sangguniang Barangay Member',
+            ),
+            array(
+                'name' => $faker->filipinoName('Male') . ' ' . $faker->filipinoLastName(),
+                'image' => asset('/assets/avatar/avatar (' . rand(1, 20) . ').png'),
+                'position' => 'Sangguniang Barangay Member',
+            ),
+            array(
+                'name' => $faker->filipinoName('Male') . ' ' . $faker->filipinoLastName(),
+                'image' => asset('/assets/avatar/avatar (' . rand(1, 20) . ').png'),
+                'position' => 'Sangguniang Barangay Member',
+            ),
+            array(
+                'name' => $faker->filipinoName('Male') . ' ' . $faker->filipinoLastName(),
+                'image' => asset('/assets/avatar/avatar (' . rand(1, 20) . ').png'),
+                'position' => 'SK Chairperson',
+            ),
+
+        );
+
+        return $offical;
     }
 }
