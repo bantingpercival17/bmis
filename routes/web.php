@@ -1,13 +1,11 @@
 <?php
 
+use App\Http\Controllers\GenerateReports;
 use App\Http\Controllers\SetupController;
-use App\Livewire\Account\AccountView;
+use App\Livewire\Administrator\DashboardView as AdministratorDashboardView;
+use App\Livewire\Barangay\BarangayClearanceView;
 use App\Livewire\DashboardView;
 use App\Livewire\IncidentReportAdd;
-use App\Livewire\IncidentReportView;
-use App\Livewire\Resident\AddInformation;
-use App\Livewire\Resident\ViewInformation;
-use App\Livewire\ResidentView;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,8 +36,8 @@ Route::prefix('administrator')->middleware(['auth', 'administrator'])
         require __DIR__ . '/module-routes/accounts-route.php';
         require __DIR__ . '/module-routes/residents-route.php';
         require __DIR__ . '/module-routes/incident-route.php';
-        Route::get('/', DashboardView::class)->name('dashboard');
-        Route::get('/dashboard', DashboardView::class)->name('dashboard');
+        Route::get('/', AdministratorDashboardView::class)->name('dashboard');
+        Route::get('/dashboard', AdministratorDashboardView::class)->name('dashboard');
         /*  require __DIR__ . '/module-routes/accounts-route.php'; */
     });
 
@@ -49,6 +47,11 @@ Route::prefix('barangay')->middleware(['auth', 'barangay'])
         require __DIR__ . '/module-routes/incident-route.php';
         Route::get('/', DashboardView::class)->name('dashboard');
         Route::get('/dashboard', DashboardView::class)->name('dashboard');
+
+        Route::prefix('/barangay-clearance')->group(function () {
+            Route::get('/',  BarangayClearanceView::class)->name('barangay-clearance.view');
+            Route::get('/report', [GenerateReports::class, 'barangay_clearance'])->name('report.barangay-clearance');
+        });
     });
 
 

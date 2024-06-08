@@ -21,7 +21,11 @@ class AddInformation extends Component
         'sex' => '',
         'civil_status' => '',
         'contact_number' => '',
-        'region' => null, 'province' => null, 'municipality' => null, 'barangay' => null, 'street' => ''
+        'region' =>  null,
+        'province' =>  null,
+        'municipality' =>  null,
+        'barangay' =>  null,
+        'street' => ''
     );
 
     public $successMessage;
