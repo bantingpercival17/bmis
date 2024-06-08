@@ -71,4 +71,15 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserAddress::class, 'user_id');
     }
+
+    /* SETTING : FOR CHECK OF LOCATION */
+    function check_region($data)
+    {
+        return RegionModel::where('region_sort', $data)->first();
+    }
+    function check_province($data, $name)
+    {
+        $region = $this->check_region($data);
+        return ProvinceModel::where('region_id', $region->id)->where('province_name', $name)->first();
+    }
 }

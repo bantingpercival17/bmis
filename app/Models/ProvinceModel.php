@@ -12,4 +12,9 @@ class ProvinceModel extends Model
         'region_id',
         'province_name'
     ];
+
+    function municipalities()
+    {
+        return $this->hasMany(MunicipalityModel::class, 'province_id');
+    }
 }

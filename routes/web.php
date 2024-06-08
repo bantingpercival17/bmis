@@ -3,6 +3,7 @@
 use App\Http\Controllers\GenerateReports;
 use App\Http\Controllers\SetupController;
 use App\Livewire\Administrator\DashboardView as AdministratorDashboardView;
+use App\Livewire\Administrator\ProvinceView;
 use App\Livewire\Barangay\BarangayClearanceView;
 use App\Livewire\DashboardView;
 use App\Livewire\Administrator\Regions;
@@ -41,6 +42,7 @@ Route::prefix('administrator')->middleware(['auth', 'administrator'])
         Route::get('/dashboard', AdministratorDashboardView::class)->name('dashboard');
         Route::prefix('/regions')->group(function () {
             Route::get('/',  Regions::class)->name('regions.view');
+            Route::get('/province',  ProvinceView::class)->name('province.view');
         });
         /*  require __DIR__ . '/module-routes/accounts-route.php'; */
     });
